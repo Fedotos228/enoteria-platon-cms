@@ -6,7 +6,7 @@ module.exports = [
     name: 'strapi::cors',
     config: {
       headers: '*',
-      origin: ['http://localhost:1337', 'http://localhost:3000', 'https://enoteria-platon-8b572188cb73.herokuapp.com/', 'https://enoteria-platon.vercel.app/']
+      origin: ['http://localhost:1337', 'http://localhost:3000', 'https://enoteria-platon-8b572188cb73.herokuapp.com/', 'https://enoteria-platon.vercel.app']
     }
   },
   'strapi::poweredBy',
