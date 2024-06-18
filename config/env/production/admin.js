@@ -1,4 +1,6 @@
 module.exports = ({ env }) => ({
+  url: env('MY_FRONTEND_URL'),
+  serveAdminPanel: false,
   admin: {
     path: '/admin',
     build: {
