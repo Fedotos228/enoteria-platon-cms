@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-06-17T09:05:18.206Z"
+    "x-generation-date": "2024-06-17T14:50:34.321Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -237,10 +237,6 @@
                                       "format": "date-time"
                                     },
                                     "updatedAt": {
-                                      "type": "string",
-                                      "format": "date-time"
-                                    },
-                                    "publishedAt": {
                                       "type": "string",
                                       "format": "date-time"
                                     },
@@ -1069,7 +1065,7 @@
                                           }
                                         }
                                       },
-                                      "price": {
+                                      "price_mdl": {
                                         "type": "integer"
                                       },
                                       "discount": {
@@ -1091,6 +1087,9 @@
                                             }
                                           }
                                         }
+                                      },
+                                      "price_ron": {
+                                        "type": "integer"
                                       },
                                       "createdAt": {
                                         "type": "string",
@@ -1153,10 +1152,6 @@
                           "type": "string",
                           "format": "date-time"
                         },
-                        "publishedAt": {
-                          "type": "string",
-                          "format": "date-time"
-                        },
                         "createdBy": {
                           "type": "object",
                           "properties": {
@@ -1203,10 +1198,6 @@
             "format": "date-time"
           },
           "updatedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "publishedAt": {
             "type": "string",
             "format": "date-time"
           },
@@ -1314,7 +1305,7 @@
                   "example": "string or id"
                 }
               },
-              "price": {
+              "price_mdl": {
                 "type": "integer"
               },
               "discount": {
@@ -1330,6 +1321,9 @@
                   }
                 ],
                 "example": "string or id"
+              },
+              "price_ron": {
+                "type": "integer"
               }
             }
           }
@@ -2160,7 +2154,7 @@
               }
             }
           },
-          "price": {
+          "price_mdl": {
             "type": "integer"
           },
           "discount": {
@@ -2227,10 +2221,6 @@
                                     "format": "date-time"
                                   },
                                   "updatedAt": {
-                                    "type": "string",
-                                    "format": "date-time"
-                                  },
-                                  "publishedAt": {
                                     "type": "string",
                                     "format": "date-time"
                                   },
@@ -2576,7 +2566,7 @@
                                         }
                                       }
                                     },
-                                    "price": {
+                                    "price_mdl": {
                                       "type": "integer"
                                     },
                                     "discount": {
@@ -2598,6 +2588,9 @@
                                           }
                                         }
                                       }
+                                    },
+                                    "price_ron": {
+                                      "type": "integer"
                                     },
                                     "createdAt": {
                                       "type": "string",
@@ -2660,10 +2653,6 @@
                         "type": "string",
                         "format": "date-time"
                       },
-                      "publishedAt": {
-                        "type": "string",
-                        "format": "date-time"
-                      },
                       "createdBy": {
                         "type": "object",
                         "properties": {
@@ -2703,6 +2692,9 @@
                 }
               }
             }
+          },
+          "price_ron": {
+            "type": "integer"
           },
           "createdAt": {
             "type": "string",
@@ -3713,7 +3705,7 @@
                                                       }
                                                     }
                                                   },
-                                                  "price": {
+                                                  "price_mdl": {
                                                     "type": "integer"
                                                   },
                                                   "discount": {
@@ -3735,6 +3727,9 @@
                                                         }
                                                       }
                                                     }
+                                                  },
+                                                  "price_ron": {
+                                                    "type": "integer"
                                                   },
                                                   "createdAt": {
                                                     "type": "string",
@@ -3797,10 +3792,6 @@
                                       "type": "string",
                                       "format": "date-time"
                                     },
-                                    "publishedAt": {
-                                      "type": "string",
-                                      "format": "date-time"
-                                    },
                                     "createdBy": {
                                       "type": "object",
                                       "properties": {
@@ -3847,10 +3838,6 @@
                         "format": "date-time"
                       },
                       "updatedAt": {
-                        "type": "string",
-                        "format": "date-time"
-                      },
-                      "publishedAt": {
                         "type": "string",
                         "format": "date-time"
                       },
@@ -3919,10 +3906,6 @@
             "format": "date-time"
           },
           "updatedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "publishedAt": {
             "type": "string",
             "format": "date-time"
           },

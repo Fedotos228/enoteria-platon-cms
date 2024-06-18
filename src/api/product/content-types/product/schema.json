@@ -40,7 +40,7 @@
         "images"
       ]
     },
-    "price": {
+    "price_mdl": {
       "type": "integer"
     },
     "discount": {
@@ -51,6 +51,9 @@
       "relation": "manyToOne",
       "target": "api::subcategory.subcategory",
       "inversedBy": "products"
+    },
+    "price_ron": {
+      "type": "integer"
     }
   }
 }

@@ -371,7 +371,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     description: '';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     title: Attribute.String;
@@ -383,7 +383,6 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::category.category',
       'oneToOne',
@@ -416,13 +415,14 @@ export interface ApiProductProduct extends Schema.CollectionType {
     slug: Attribute.UID<'api::product.product', 'title'> & Attribute.Required;
     thumbnail: Attribute.Media<'images'> & Attribute.Required;
     gallery: Attribute.Media<'images', true>;
-    price: Attribute.Integer;
+    price_mdl: Attribute.Integer;
     discount: Attribute.Integer;
     subcategory: Attribute.Relation<
       'api::product.product',
       'manyToOne',
       'api::subcategory.subcategory'
     >;
+    price_ron: Attribute.Integer;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -450,7 +450,7 @@ export interface ApiSubcategorySubcategory extends Schema.CollectionType {
     description: '';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     title: Attribute.String;
@@ -467,7 +467,6 @@ export interface ApiSubcategorySubcategory extends Schema.CollectionType {
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
       'api::subcategory.subcategory',
       'oneToOne',
