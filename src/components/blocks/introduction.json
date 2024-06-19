@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_blocks_introductions",
+  "info": {
+    "displayName": "Introduction",
+    "icon": "write"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "background": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

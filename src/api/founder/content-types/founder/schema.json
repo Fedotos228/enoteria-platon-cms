@@ -1,0 +1,33 @@
+{
+  "kind": "singleType",
+  "collectionName": "founders",
+  "info": {
+    "singularName": "founder",
+    "pluralName": "founders",
+    "displayName": "Founder",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "blocks"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "subtitle": {
+      "type": "string"
+    }
+  }
+}
