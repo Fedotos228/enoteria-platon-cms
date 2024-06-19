@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_blocks_details",
+  "info": {
+    "displayName": "Details",
+    "icon": "layer",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "desc": {
+      "type": "string"
+    }
+  }
+}
