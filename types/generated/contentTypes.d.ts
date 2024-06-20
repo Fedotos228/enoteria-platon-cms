@@ -906,6 +906,39 @@ export interface ApiContactContact extends Schema.SingleType {
   };
 }
 
+export interface ApiContactFormContactForm extends Schema.CollectionType {
+  collectionName: 'contact_forms';
+  info: {
+    singularName: 'contact-form';
+    pluralName: 'contact-forms';
+    displayName: 'ContactForm';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    email: Attribute.String;
+    phone: Attribute.BigInteger;
+    message: Attribute.Blocks;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact-form.contact-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact-form.contact-form',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiFounderFounder extends Schema.SingleType {
   collectionName: 'founders';
   info: {
@@ -936,6 +969,32 @@ export interface ApiFounderFounder extends Schema.SingleType {
       'oneToOne',
       'admin::user'
     > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiNewNew extends Schema.CollectionType {
+  collectionName: 'news';
+  info: {
+    singularName: 'new';
+    pluralName: 'news';
+    displayName: 'Articles';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.Text;
+    body: Attribute.Blocks;
+    slug: Attribute.UID<'api::new.new', 'title'>;
+    image: Attribute.Media<'images'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::new.new', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::new.new', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -1129,7 +1188,9 @@ declare module '@strapi/types' {
       'api::about.about': ApiAboutAbout;
       'api::category.category': ApiCategoryCategory;
       'api::contact.contact': ApiContactContact;
+      'api::contact-form.contact-form': ApiContactFormContactForm;
       'api::founder.founder': ApiFounderFounder;
+      'api::new.new': ApiNewNew;
       'api::product.product': ApiProductProduct;
       'api::shop.shop': ApiShopShop;
       'api::subcategory.subcategory': ApiSubcategorySubcategory;
