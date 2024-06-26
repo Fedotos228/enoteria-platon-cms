@@ -1,11 +1,10 @@
 {
   "kind": "singleType",
-  "collectionName": "shops",
+  "collectionName": "merches",
   "info": {
-    "singularName": "shop",
-    "pluralName": "shops",
-    "displayName": "Shop",
-    "description": ""
+    "singularName": "merch",
+    "pluralName": "merches",
+    "displayName": "Merch"
   },
   "options": {
     "draftAndPublish": true

@@ -2,8 +2,21 @@
   "collectionName": "components_blocks_contacts",
   "info": {
     "displayName": "Contacts",
-    "icon": "information"
+    "icon": "information",
+    "description": ""
   },
   "options": {},
-  "attributes": {}
+  "attributes": {
+    "href": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "LucideIcon": {
+      "type": "string"
+    }
+  }
 }

@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_merch_components_sizes",
+  "info": {
+    "displayName": "Sizes",
+    "icon": "scissors",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    }
+  }
+}

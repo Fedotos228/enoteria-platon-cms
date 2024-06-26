@@ -10,15 +10,13 @@
     "href": {
       "type": "string"
     },
-    "title": {
-      "type": "string"
-    },
     "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     }
   }
 }

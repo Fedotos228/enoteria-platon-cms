@@ -5,8 +5,13 @@ export interface BlocksContacts extends Schema.Component {
   info: {
     displayName: 'Contacts';
     icon: 'information';
+    description: '';
   };
-  attributes: {};
+  attributes: {
+    href: Attribute.String & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    LucideIcon: Attribute.String;
+  };
 }
 
 export interface BlocksDetails extends Schema.Component {
@@ -57,8 +62,32 @@ export interface BlocksSocials extends Schema.Component {
   };
   attributes: {
     href: Attribute.String;
+    icon: Attribute.Media<'images'>;
+  };
+}
+
+export interface MerchComponentsColors extends Schema.Component {
+  collectionName: 'components_merch_components_colors';
+  info: {
+    displayName: 'colors';
+    icon: 'database';
+    description: '';
+  };
+  attributes: {
     title: Attribute.String;
-    icon: Attribute.Media<'images', true>;
+    hex: Attribute.String;
+  };
+}
+
+export interface MerchComponentsSizes extends Schema.Component {
+  collectionName: 'components_merch_components_sizes';
+  info: {
+    displayName: 'Sizes';
+    icon: 'scissors';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.String;
   };
 }
 
@@ -70,6 +99,8 @@ declare module '@strapi/types' {
       'blocks.introduction': BlocksIntroduction;
       'blocks.simple-block': BlocksSimpleBlock;
       'blocks.socials': BlocksSocials;
+      'merch-components.colors': MerchComponentsColors;
+      'merch-components.sizes': MerchComponentsSizes;
     }
   }
 }

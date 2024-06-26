@@ -800,9 +800,8 @@ export interface ApiAboutAbout extends Schema.SingleType {
     draftAndPublish: true;
   };
   attributes: {
-    blocks: Attribute.DynamicZone<
-      ['blocks.introduction', 'blocks.simple-block']
-    >;
+    blocks: Attribute.DynamicZone<['blocks.simple-block']>;
+    introdunction: Attribute.Component<'blocks.introduction'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -887,7 +886,8 @@ export interface ApiContactContact extends Schema.SingleType {
   attributes: {
     introdunction: Attribute.Component<'blocks.introduction'>;
     title: Attribute.String;
-    components: Attribute.DynamicZone<['blocks.contacts', 'blocks.socials']>;
+    socials: Attribute.Component<'blocks.socials', true>;
+    contactList: Attribute.Component<'blocks.contacts', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -973,6 +973,98 @@ export interface ApiFounderFounder extends Schema.SingleType {
   };
 }
 
+export interface ApiHomeHome extends Schema.SingleType {
+  collectionName: 'homes';
+  info: {
+    singularName: 'home';
+    pluralName: 'homes';
+    displayName: 'Home';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    simpleBlock: Attribute.Component<'blocks.simple-block'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::home.home', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMerchMerch extends Schema.SingleType {
+  collectionName: 'merches';
+  info: {
+    singularName: 'merch';
+    pluralName: 'merches';
+    displayName: 'Merch';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    introdunction: Attribute.Component<'blocks.introduction'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::merch.merch',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::merch.merch',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiMerchandiseMerchandise extends Schema.CollectionType {
+  collectionName: 'merchandises';
+  info: {
+    singularName: 'merchandise';
+    pluralName: 'merchandises';
+    displayName: 'Merchandise';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    thumbnail: Attribute.Media<'images'> & Attribute.Required;
+    price_mdl: Attribute.String;
+    price_ron: Attribute.String;
+    slug: Attribute.UID<'api::merchandise.merchandise', 'title'>;
+    type: Attribute.Enumeration<['t-shirt', 'hoodie', 'cap']>;
+    colors: Attribute.Component<'merch-components.colors', true>;
+    sizes: Attribute.Component<'merch-components.sizes', true>;
+    gallery: Attribute.Media<'images', true>;
+    discount: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::merchandise.merchandise',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::merchandise.merchandise',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiNewNew extends Schema.CollectionType {
   collectionName: 'news';
   info: {
@@ -984,11 +1076,31 @@ export interface ApiNewNew extends Schema.CollectionType {
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
-    title: Attribute.Text;
-    body: Attribute.Blocks;
+    title: Attribute.Text &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
+    body: Attribute.Blocks &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     slug: Attribute.UID<'api::new.new', 'title'>;
-    image: Attribute.Media<'images'>;
+    image: Attribute.Media<'images'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -996,6 +1108,12 @@ export interface ApiNewNew extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<'api::new.new', 'oneToOne', 'admin::user'> &
       Attribute.Private;
+    localizations: Attribute.Relation<
+      'api::new.new',
+      'oneToMany',
+      'api::new.new'
+    >;
+    locale: Attribute.String;
   };
 }
 
@@ -1108,14 +1226,13 @@ export interface ApiShopShop extends Schema.SingleType {
     singularName: 'shop';
     pluralName: 'shops';
     displayName: 'Shop';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    components: Attribute.DynamicZone<
-      ['blocks.introduction', 'blocks.simple-block']
-    >;
+    introdunction: Attribute.Component<'blocks.introduction'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1190,6 +1307,9 @@ declare module '@strapi/types' {
       'api::contact.contact': ApiContactContact;
       'api::contact-form.contact-form': ApiContactFormContactForm;
       'api::founder.founder': ApiFounderFounder;
+      'api::home.home': ApiHomeHome;
+      'api::merch.merch': ApiMerchMerch;
+      'api::merchandise.merchandise': ApiMerchandiseMerchandise;
       'api::new.new': ApiNewNew;
       'api::product.product': ApiProductProduct;
       'api::shop.shop': ApiShopShop;

@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_merch_components_colors",
+  "info": {
+    "displayName": "colors",
+    "icon": "database",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "hex": {
+      "type": "string"
+    }
+  }
+}

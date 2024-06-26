@@ -20,12 +20,15 @@
     "title": {
       "type": "string"
     },
-    "components": {
-      "type": "dynamiczone",
-      "components": [
-        "blocks.contacts",
-        "blocks.socials"
-      ]
+    "socials": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.socials"
+    },
+    "contactList": {
+      "type": "component",
+      "repeatable": true,
+      "component": "blocks.contacts"
     }
   }
 }

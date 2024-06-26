@@ -1,0 +1,68 @@
+{
+  "kind": "collectionType",
+  "collectionName": "merchandises",
+  "info": {
+    "singularName": "merchandise",
+    "pluralName": "merchandises",
+    "displayName": "Merchandise",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "thumbnail": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "price_mdl": {
+      "type": "string"
+    },
+    "price_ron": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "t-shirt",
+        "hoodie",
+        "cap"
+      ]
+    },
+    "colors": {
+      "displayName": "colors",
+      "type": "component",
+      "repeatable": true,
+      "component": "merch-components.colors"
+    },
+    "sizes": {
+      "displayName": "Sizes",
+      "type": "component",
+      "repeatable": true,
+      "component": "merch-components.sizes"
+    },
+    "gallery": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "discount": {
+      "type": "integer"
+    }
+  }
+}

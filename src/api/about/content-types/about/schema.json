@@ -15,9 +15,13 @@
     "blocks": {
       "type": "dynamiczone",
       "components": [
-        "blocks.introduction",
         "blocks.simple-block"
       ]
+    },
+    "introdunction": {
+      "type": "component",
+      "repeatable": false,
+      "component": "blocks.introduction"
     }
   }
 }
