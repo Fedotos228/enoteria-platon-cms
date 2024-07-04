@@ -19,9 +19,7 @@
       "type": "media",
       "multiple": false,
       "required": true,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "price_mdl": {
       "type": "string"
@@ -30,16 +28,18 @@
       "type": "string"
     },
     "slug": {
-      "type": "uid",
-      "targetField": "title"
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "unique": false,
+      "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
     },
     "type": {
       "type": "enumeration",
-      "enum": [
-        "t-shirt",
-        "hoodie",
-        "cap"
-      ]
+      "enum": ["t-shirt", "hoodie", "cap"]
     },
     "colors": {
       "displayName": "colors",
@@ -57,9 +57,7 @@
       "type": "media",
       "multiple": true,
       "required": false,
-      "allowedTypes": [
-        "images"
-      ]
+      "allowedTypes": ["images"]
     },
     "discount": {
       "type": "integer"

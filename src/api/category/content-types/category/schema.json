@@ -25,8 +25,14 @@
       }
     },
     "slug": {
-      "type": "uid",
-      "targetField": "title"
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "string",
+      "unique": false,
+      "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
     },
     "subcategories": {
       "type": "relation",

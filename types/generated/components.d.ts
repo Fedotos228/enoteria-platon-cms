@@ -27,6 +27,17 @@ export interface BlocksDetails extends Schema.Component {
   };
 }
 
+export interface BlocksHero extends Schema.Component {
+  collectionName: 'components_blocks_heroes';
+  info: {
+    displayName: 'Hero';
+  };
+  attributes: {
+    title: Attribute.Blocks & Attribute.Required;
+    background: Attribute.Media<'images'> & Attribute.Required;
+  };
+}
+
 export interface BlocksIntroduction extends Schema.Component {
   collectionName: 'components_blocks_introductions';
   info: {
@@ -96,6 +107,7 @@ declare module '@strapi/types' {
     export interface Components {
       'blocks.contacts': BlocksContacts;
       'blocks.details': BlocksDetails;
+      'blocks.hero': BlocksHero;
       'blocks.introduction': BlocksIntroduction;
       'blocks.simple-block': BlocksSimpleBlock;
       'blocks.socials': BlocksSocials;
