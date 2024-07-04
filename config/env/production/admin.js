@@ -5,4 +5,9 @@ module.exports = ({ env }) => ({
       backend: env('PRODUCTION_URL', 'https://enoteria-platon-298abb099da9.herokuapp.com/'),
     },
   },
+  transfer: {
+    token: {
+      salt: env('TRANSFER_TOKEN_SALT'),
+    },
+  },
 })
