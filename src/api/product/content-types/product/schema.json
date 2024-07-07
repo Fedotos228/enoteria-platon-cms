@@ -25,6 +25,15 @@
         }
       }
     },
+    "slug": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "type": "uid",
+      "targetField": "title"
+    },
     "description": {
       "type": "blocks",
       "pluginOptions": {
@@ -32,16 +41,6 @@
           "localized": true
         }
       }
-    },
-    "slug": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "string",
-      "unique": false,
-      "regex": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
     },
     "thumbnail": {
       "type": "media",

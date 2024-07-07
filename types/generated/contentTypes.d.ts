@@ -961,7 +961,7 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    slug: Attribute.String &
+    slug: Attribute.UID &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -1166,7 +1166,7 @@ export interface ApiMerchandiseMerchandise extends Schema.CollectionType {
     thumbnail: Attribute.Media<'images'> & Attribute.Required;
     price_mdl: Attribute.String;
     price_ron: Attribute.String;
-    slug: Attribute.String &
+    slug: Attribute.UID &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -1224,7 +1224,7 @@ export interface ApiNewNew extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    slug: Attribute.String &
+    slug: Attribute.UID &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -1258,6 +1258,46 @@ export interface ApiNewNew extends Schema.CollectionType {
   };
 }
 
+export interface ApiOrderOrder extends Schema.CollectionType {
+  collectionName: 'orders';
+  info: {
+    singularName: 'order';
+    pluralName: 'orders';
+    displayName: 'Order';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    firstName: Attribute.String;
+    address: Attribute.String;
+    city: Attribute.String;
+    country: Attribute.String;
+    phone: Attribute.BigInteger;
+    paymentMethod: Attribute.String;
+    totalPrice: Attribute.BigInteger;
+    subTotalPrice: Attribute.BigInteger;
+    products: Attribute.JSON;
+    lastName: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::order.order',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::order.order',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProductProduct extends Schema.CollectionType {
   collectionName: 'products';
   info: {
@@ -1282,16 +1322,16 @@ export interface ApiProductProduct extends Schema.CollectionType {
           localized: true;
         };
       }>;
+    slug: Attribute.UID<'api::product.product', 'title'> &
+      Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     description: Attribute.Blocks &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
-        };
-      }>;
-    slug: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: false;
         };
       }>;
     thumbnail: Attribute.Media<'images'> &
@@ -1402,7 +1442,7 @@ export interface ApiSubcategorySubcategory extends Schema.CollectionType {
   };
   attributes: {
     title: Attribute.String;
-    slug: Attribute.String &
+    slug: Attribute.UID &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: false;
@@ -1465,6 +1505,7 @@ declare module '@strapi/types' {
       'api::merch.merch': ApiMerchMerch;
       'api::merchandise.merchandise': ApiMerchandiseMerchandise;
       'api::new.new': ApiNewNew;
+      'api::order.order': ApiOrderOrder;
       'api::product.product': ApiProductProduct;
       'api::shop.shop': ApiShopShop;
       'api::subcategory.subcategory': ApiSubcategorySubcategory;
