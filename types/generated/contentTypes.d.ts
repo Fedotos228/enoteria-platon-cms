@@ -1280,6 +1280,7 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     subTotalPrice: Attribute.BigInteger;
     products: Attribute.JSON;
     lastName: Attribute.String;
+    status: Attribute.Enumeration<['pre-order', 'processed', 'canceled']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
