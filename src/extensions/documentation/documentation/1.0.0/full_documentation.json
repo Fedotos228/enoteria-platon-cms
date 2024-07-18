@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2024-07-10T08:30:17.206Z"
+    "x-generation-date": "2024-07-12T06:54:03.680Z"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -3191,7 +3191,7 @@
           "data": {
             "type": "object",
             "properties": {
-              "name": {
+              "fullname": {
                 "type": "string"
               },
               "email": {
@@ -3202,7 +3202,9 @@
                 "pattern": "^\\d*$",
                 "example": "123456789"
               },
-              "message": {}
+              "message": {
+                "type": "string"
+              }
             }
           }
         }
@@ -3256,7 +3258,7 @@
       "ContactForm": {
         "type": "object",
         "properties": {
-          "name": {
+          "fullname": {
             "type": "string"
           },
           "email": {
@@ -3267,7 +3269,9 @@
             "pattern": "^\\d*$",
             "example": "123456789"
           },
-          "message": {},
+          "message": {
+            "type": "string"
+          },
           "createdAt": {
             "type": "string",
             "format": "date-time"
@@ -6934,6 +6938,9 @@
                   "processed",
                   "canceled"
                 ]
+              },
+              "email": {
+                "type": "string"
               }
             }
           }
@@ -7029,6 +7036,9 @@
               "processed",
               "canceled"
             ]
+          },
+          "email": {
+            "type": "string"
           },
           "createdAt": {
             "type": "string",

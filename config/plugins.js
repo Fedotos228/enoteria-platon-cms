@@ -40,4 +40,16 @@ module.exports = ({ env }) => ({
       },
     },
   },
+  email: {
+    config: {
+      provider: 'sendgrid',
+      providerOptions: {
+        apiKey: env('SENDGRID_API_KEY'),
+      },
+      settings: {
+        defaultFrom: 'enoteria.platon@gmail.com',
+        defaultReplyTo: 'enoteria.platon@gmail.com',
+      },
+    },
+  },
 })

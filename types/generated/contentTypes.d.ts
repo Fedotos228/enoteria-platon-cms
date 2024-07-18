@@ -1035,15 +1035,16 @@ export interface ApiContactFormContactForm extends Schema.CollectionType {
     singularName: 'contact-form';
     pluralName: 'contact-forms';
     displayName: 'ContactForm';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
-    name: Attribute.String;
+    fullname: Attribute.String;
     email: Attribute.String;
     phone: Attribute.BigInteger;
-    message: Attribute.Blocks;
+    message: Attribute.Text;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1281,6 +1282,7 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     products: Attribute.JSON;
     lastName: Attribute.String;
     status: Attribute.Enumeration<['pre-order', 'processed', 'canceled']>;
+    email: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

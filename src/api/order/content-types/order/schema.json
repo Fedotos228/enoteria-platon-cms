@@ -49,6 +49,9 @@
         "processed",
         "canceled"
       ]
+    },
+    "email": {
+      "type": "string"
     }
   }
 }

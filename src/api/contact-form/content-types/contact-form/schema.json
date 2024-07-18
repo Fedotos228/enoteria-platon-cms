@@ -4,14 +4,15 @@
   "info": {
     "singularName": "contact-form",
     "pluralName": "contact-forms",
-    "displayName": "ContactForm"
+    "displayName": "ContactForm",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
-    "name": {
+    "fullname": {
       "type": "string"
     },
     "email": {
@@ -21,7 +22,7 @@
       "type": "biginteger"
     },
     "message": {
-      "type": "blocks"
+      "type": "text"
     }
   }
 }
